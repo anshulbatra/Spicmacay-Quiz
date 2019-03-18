@@ -1,1 +1,1 @@
-# Spicmacay-Quiz-
+# Spicmacay-Quiz
