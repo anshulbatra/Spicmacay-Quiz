@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<head>
+  <title>Spicmacay Quiz</title>
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+
+    <div id="login_div" class="main-div" style="display: block;">
+      <h3>Login to Continue</h3><br>
+      <input type="email" placeholder="Email..." id="email_field" />
+      <input type="password" placeholder="Password..." id="password_field" />
+      <button  onclick="login()">Login to Account</button><br><br>
+      <p>Haven't Registered before?</p>
+      <button onclick="register()">Register Here</button>
+    </div>
+
+    <div id="register_div" class="main-div" style="display: none;">
+        <h3>Register to Continue </h3><br>
+        <input type="email" placeholder="Email" id="email" />
+        <input type="password" placeholder="Password" id="password" />
+        <input type="text" placeholder="Name" id="name"/>
+        <input type="text" placeholder="Roll Number" id="roll-number"/>
+        <button onclick="handleSignUp()">Register and Proceed</button>
+    </div>
+
+    <div id='user-div' style="display:none;">
+
+        <h6></h6>
+        <p id="user_para">Welcome. You're currently logged in.</p>
+        <header>
+            <div class="jumbotron" style="padding:5%;"> <!--Will Contain a Collage-->
+                <div class="container-fluid" style="margin-bottom: 0;">
+                    <div style="float:left;"><img style="width:25%;" src="Spicmacay LOGO.png"></div>
+                    <div style="float:right;"><button type="button" class="btn btn-primary" onclick="logout()">Logout</button></div>
+                </div>
+                <div class="container-fluid " style="margin-top:0;">
+                    <h1 id="spicmacay" style="text-align:center;">SPICMACAY</h1>
+                    <h2 id="welcomes-you" style="text-align:center;">Welcomes You</h2>      
+                </div>      
+            </div>
+        </header>
+
+        <div id='warning-div' style="display:block; margin-top: 2%; margin-left: 5%; margin-right: 5%; margin-bottom: 10%; text-align: center; font-size: 150%;">
+            <h1>Warning!</h1> <br>
+            <p>The quiz is 5 minutes long and you can only attempt it Once.</p>
+            <p>Once you enter the quiz, please don't logout/exit/reload and try to login again. You won't be allowed to take this quiz again.</p>
+            <br>
+            <h2>Are you Ready?</h2>
+            <div class="wrapper" style="text-align:center; margin-top: 2%;">
+                <button id="decision-button" style="margin-right: 1%; padding-left: 2%; padding-right: 2%;" type="button" class="btn btn-primary" onclick="enterContest()">Enter the Quiz</button>
+                <button style="margin-left: 1%; padding-left: 4%; padding-right: 4%;" type="button" class="btn btn-primary" onclick="logout()">Logout</button>
+            </div>
+        </div>
+
+        <div id='question-1' class="question-div">
+            <h1>Question 1</h1><br>
+            <div class="question-border-div">
+                <p style="text-align:left; margin-left: 0.5%;"> <img style="float:right;" src="question1.jpeg" height="8%" width="30%">
+                    The Nātya Shastra is the principal work of dramatic theory, encompassing dance and music, in classical India. It is believed to have been written during the period between 200 B.C.E. and 200 C.E. The Natya Shastra is the outcome of several centuries of theatrical practice by hereditary actors, who passed their tradition orally from generation to generation. 'Natya-Shastra' the main source of India's classical dances was written by
+                </p>    
+                <div class="row" style="margin-top:5%">
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-1"  value="a"> A.  Nara Muni   </label></div>
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-1"  value="b"> B.  Bharat Muni </label></div>
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-1"  value="c"> C.  Abhinav Gupt</label></div>
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-1"  value="d"> D.  Tandu Muni  </label></div>
+                </div>
+                <h4 class="timer">Next Question pops in <span id="timer-1"></span> seconds.</h4> 
+                <div class="button-div" style="margin-top: 10%;">
+                    <button id="next-1" style="text-align:center; margin-right:8%; padding-left: 6%; padding-right: 6%;" type="submit" class="btn btn-primary btn-lg" onclick="next1()">Next</button>
+                </div>
+            </div>
+        </div>
+
+        <div id='question-2' class="question-div">
+            <h1>Question 2</h1><br>
+            <div class="question-border-div">
+                <p style="text-align:left; margin-left: 2%;"> <img style="float:right;" src="question2.jpeg" height="6%" width="30%">
+                    Which is the most ancient musical instrument of india ?
+                </p>    
+                <div class="row" style="margin-top:10%">
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-2" value="a"> A.  Veena</label></div>
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-2" value="b"> B.  Flute</label></div>
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-2" value="c"> C.  Sitar</label></div>
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-2" value="d"> D.  Tabla</label></div>
+                </div>
+                <h4 class="timer">Next Question pops in <span id="timer-2"></span> seconds.</h4> 
+                <div class="button-div" style="margin-top: 10%;">
+                    <button id="next-2" style="text-align:center; margin-right:8%; padding-left: 6%; padding-right: 6%;" type="submit" class="btn btn-primary btn-lg" onclick="next2()">Next</button>
+                </div>
+            </div>
+        </div>
+
+        <div id='question-3' class="question-div">
+            <h1>Question 3</h1><br>
+            <div class="question-border-div">
+                <p> <img style="float:right;" src="question3.jpeg" height="4%" width="30%">
+                    The feet movements in this dance form are soft and graceful and the movements are not emphasized by the use of anklets on the dancer's ankles, unlike the other Indian classical dances. As an exception, which Indian dance form doesn't involve anklets as a part of the dancer's attire?
+                </p>    
+                <div class="row" style="margin-top:5%">
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-3" value="a"> A.  Kathak      </label></div>
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-3" value="b"> B.  Manipuri    </label></div>
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-3" value="c"> C.  Bhartanatyam</label></div>
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-3" value="d"> D.  Kathakali   </label></div>
+                </div>
+                <h4 class="timer">Next Question pops in <span id="timer-3"></span> seconds.</h4> 
+                <div class="button-div" style="margin-top: 10%;">
+                    <button id="next-3" style="text-align:center; margin-right:8%; padding-left: 6%; padding-right: 6%;" type="submit" class="btn btn-primary btn-lg" onclick="next3()">Next</button>
+                </div>
+            </div>
+        </div>
+
+        <div id='question-4' class="question-div">
+            <h1>Question 4</h1><br>
+            <div class="question-border-div">
+                <p> <img style="float:right;" src="question4.jpg" height="4%" width="30%">
+                    Ratha Yatra is a Hindu festival held at Puri in the state of Odisha, India. It is the oldest Ratha Jatra taking place in India and the World, whose descriptions can be found in Brahma Purana, Padma Purana, and Skanda Purana and Kapila Samhita. This Rath Yatra at Puri is celebrated in honour of which Hindu deity?
+                </p>    
+                <div class="row" style="margin-top:5%">
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-4" value="a"> A.  Ram     </label></div>
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-4" value="b"> B.  Vishnu  </label></div>
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-4" value="c"> C.  Shiva   </label></div>
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-4" value="d"> D.  Jaganath</label></div>
+                </div>
+                <h4 class="timer">Next Question pops in <span id="timer-4"></span> seconds.</h4> 
+                <div class="button-div" style="margin-top: 10%;">
+                    <button id="next-4" style="text-align:center; margin-right:8%; padding-left: 6%; padding-right: 6%;" type="submit" class="btn btn-primary btn-lg" onclick="next4()">Next</button>
+                </div>
+            </div>
+        </div>
+
+        <div id='question-5' class="question-div">
+            <h1>Question 5</h1><br>
+            <div class="question-border-div">
+                <p> <img style="float:right;" src="question5.png" height="4%" width="30%">
+                    Often characterized by complex geometrical patterns, Madhubani paintings are known for representing ritual content for particular occasions, including festivals, religious rituals, etc. The colors used in these paintings are usually derived from plants and other natural sources. These colors are often bright and pigments like lampblack and ochre are used to create black and brown respectively. Instead of contemporary brushes, objects like twigs, matchsticks and even fingers are used to create the paintings.'Madhubani', a style of folk paintings, is popular in which of the following states in India?
+                </p>    
+                <div class="row" style="margin-top:5%">
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-5" value="a"> A.  Uttar Pradesh</label></div>
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-5" value="b"> B.  Rajasthan</label></div>
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-5" value="c"> C.  Bihar</label></div>
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-5" value="d"> D.  Madhya Pradesh</label></div>
+                </div>
+                <h4 class="timer">Next Question pops in <span id="timer-5"></span> seconds.</h4> 
+                <div class="button-div" style="margin-top: 10%;">
+                    <button id="next-5" style="text-align:center; margin-right:8%; padding-left: 6%; padding-right: 6%;" type="submit" class="btn btn-primary btn-lg" onclick="next5()">Next</button>
+                </div>
+            </div>
+        </div>
+
+        <div id='question-6' class="question-div">
+            <h1>Question 6</h1><br>
+            <div class="question-border-div">
+                <p> <img style="float:right;" src="question6.jpg" height="4%" width="30%">
+                    Kumbh Mela or Kumbha Mela is a mass Hindu pilgrimage of faith in which Hindus gather to bathe in a sacred or holy river. The Kumbh Mela is held every 12 years. The last Mahakumbh of the 20th century was held at
+                </p>    
+                <div class="row" style="margin-top:5%">
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-6" value="a"> A.  Nasik</label></div>
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-6" value="b"> B.  Ujjain</label></div>
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-6" value="c"> C.  Allahabad</label></div>
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-6" value="d"> D.  Haridwar</label></div>
+                </div>
+                <h4 class="timer">Next Question pops in <span id="timer-6"></span> seconds.</h4> 
+                <div class="button-div" style="margin-top: 10%;">
+                    <button id="next-6" style="text-align:center; margin-right:8%; padding-left: 6%; padding-right: 6%;" type="submit" class="btn btn-primary btn-lg" onclick="next6()">Next</button>
+                </div>
+            </div>
+        </div>
+
+        <div id='question-7' class="question-div">
+            <h1>Question 7</h1><br>
+            <div class="question-border-div">
+                <p> <img style="float:right;" src="question7.jpg" height="4%" width="30%">
+                    Chikankari is a skill of more than 200 years old. It literally means 'embroidery'. It was originally done with a white thread on a white cloth, hence the name 'white embroidery'. Now, it is done on a variety of fabrics and in a spectrum of colours. Which of the following places is famous for Chikankari work, which is a traditional art of embroidery?
+                </p>    
+                <div class="row" style="margin-top:5%">
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-7" value="a"> A.  Lucknow</label></div>
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-7" value="b"> B.  Hyderabad</label></div>
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-7" value="c"> C.  Jaipur</label></div>
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-7" value="d"> D.  Mysore</label></div>
+                </div>
+                <h4 class="timer">Next Question pops in <span id="timer-7"></span> seconds.</h4> 
+                <div class="button-div" style="margin-top: 10%;">
+                    <button id="next-7" style="text-align:center; margin-right:8%; padding-left: 6%; padding-right: 6%;" type="submit" class="btn btn-primary btn-lg" onclick="next7()">Next</button>
+                </div>
+            </div>
+        </div>
+
+        <div id='question-8' class="question-div">
+            <h1>Question 8</h1><br>
+            <div class="question-border-div">
+                <p> <img style="float:right;" src="question8.jpg" height="4%" width="30%">
+                    Even though many editions of the Sangai Festival has been celebrated over the past few years with the name of Tourism Festival, since 2010 this has been renamed as the Sangai Festival to stage the uniqueness of the shy and gentle brow-antlered deer popularly known as the Sangai Deer. The Sangai Festival is celebrated in which state of India?
+                </p>    
+                <div class="row" style="margin-top:5%">
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-8" value="a"> A. Assam</label></div>
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-8" value="b"> B. Manipur</label></div>
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-8" value="c"> C. Mizoram</label></div>
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-8" value="d"> D. Nagaland</label></div>
+                </div>
+                <h4 class="timer">Next Question pops in <span id="timer-8"></span> seconds.</h4> 
+                <div class="button-div" style="margin-top: 10%;">
+                    <button id="next-8" style="text-align:center; margin-right:8%; padding-left: 6%; padding-right: 6%;" type="submit" class="btn btn-primary btn-lg" onclick="next8()">Next</button>
+                </div>
+            </div>
+        </div>
+
+        <div id='question-9' class="question-div">
+            <h1>Question 9</h1><br>
+            <div class="question-border-div">
+                <p> <img style="float:right;" src="question9.jpg" height="4%" width="30%">
+                    The temples constructed at Khajuraho are: <br>
+
+                    1. Jain temples <br>
+                    
+                    2. Vaishnavite Temples <br>
+                    
+                    3. Saivite Temples <br>
+                    
+                    Choose the correct option from the codes given below
+                </p>    
+                <div class="row" style="margin-top:5%">
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-9" value="a"> A. Only 1 & 3 </label></div>
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-9" value="b"> B. Only 2 & 3</label></div>
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-9" value="c"> C. 1, 2 & 3</label></div>
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-9" value="d"> D. Only 1 & 2</label></div>
+                </div>
+                <h4 class="timer">Next Question pops in <span id="timer-9"></span> seconds.</h4> 
+                <div class="button-div" style="margin-top: 10%;">
+                    <button id="next-9" style="text-align:center; margin-right:8%; padding-left: 6%; padding-right: 6%;" type="submit" class="btn btn-primary btn-lg" onclick="next9()">Next</button>
+                </div>
+            </div>
+        </div>
+
+        <div id='question-10' class="question-div">
+            <h1>Question 10</h1><br>
+            <div class="question-border-div">
+                <p> <img style="float:right;" src="question10.jpg" height="4%" width="30%">
+                    Umakant Gundecha and Ramakant Gundecha, known as the Gundecha Brothers, always sing together. So together they have been awarded Padmashree for 2012 in the field of Art - Indian Classical Music - Vocal - Madhya Pradesh. Gundecha brothers are well known exponents of which among the following styles of Hindustani Classical Music? 
+                </p>    
+                <div class="row" style="margin-top:5%">
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-10" value="a"> A. Khayal </label></div>
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-10" value="b"> B. Tharana</label></div>
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-10" value="c"> C. Dhrupad</label></div>
+                    <div class="col-sm-3"><label class="radiocontainer"><input type="radio" name="response-10" value="d"> D. Thumri</label></div>
+                </div>
+                <h4 class="timer">Next Question pops in <span id="timer-10"></span> seconds.</h4> 
+                <div class="button-div" style="margin-top: 10%;">
+                    <button id="next-10" style="text-align:center; margin-right:8%; padding-left: 6%; padding-right: 6%;" type="submit" class="btn btn-primary btn-lg" onclick="finishContest()">Finish</button>
+                </div>
+            </div>
+        </div>
+
+        
+        <div id='finish-div' style="display:none; margin-top: 6%; margin-left: 5%; margin-right: 5%; text-align: center; font-size: 150%;">
+            <h2>You're Done!</h2>
+            <h3>Number of Correct Answers: <span id="correct-answers"></span></h3>
+            <div class="wrapper" style="text-align:center; margin-top: 6%;">
+                <button style="margin-left: 1%; padding-left: 4%; padding-right: 4%;" type="button" class="btn btn-primary" onclick="logout()">Logout</button>
+            </div>
+        </div>
+
+        <div id='failure-div' style="display:none; margin-top: 2%; margin-left: 5%; margin-right: 5%; text-align: center; font-size: 150%;">
+            <h1>You have already attempted the quiz once. You're not allowed to proceed.</h1>
+            <div class="wrapper" style="text-align:center; margin-top: 2%;">
+                <button style="margin-left: 1%; padding-left: 4%; padding-right: 4%;" type="button" class="btn btn-primary" onclick="logout()">Logout</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyD_nivOn5-_j657IMtNheqnH_7sIeeggPM",
+        authDomain: "spicmacay-quiz.firebaseapp.com",
+        databaseURL: "https://spicmacay-quiz.firebaseio.com",
+        projectId: "spicmacay-quiz",
+        storageBucket: "spicmacay-quiz.appspot.com",
+        messagingSenderId: "259059327147"
+    };
+    firebase.initializeApp(config);
+    </script>
+    <script src="index.js"></script>
+</body>
+</html>
